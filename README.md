@@ -25,7 +25,7 @@
 
 ## Project Structure
 
-![프로젝트 설계 이미지3](/media/mwkang/743C798B3C79495E/3학년 2학기/Cloud Web Service/2021.12.03 최종/프로젝트 설계 이미지3.png)
+![프로젝트 설계 이미지3](https://user-images.githubusercontent.com/79822924/159753304-aed626a2-d8c6-437c-a3f5-aa6e357d34ba.png)
 
 
 
