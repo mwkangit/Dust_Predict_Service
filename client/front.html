@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>날씨어플</title>
+    <style>
+        body{
+            margin: 0px;
+            height: 100vh;
+            background-image:url(./WeatherBackground.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #text1{
+            position: relative;
+            text-align: center;
+            font-size:x-large;
+        }
+
+        button{
+            width: 100%;
+            margin: auto;
+            margin-top: 150px;
+            background:#1AAB8A;
+            color:#fff;
+            border:none;
+            position:relative;
+            height:60px;
+            font-size:1.6em;
+            padding:0 2em;
+            cursor:pointer;
+            transition:800ms ease all;
+            outline:none;
+          }
+        button:hover{
+            background:#fff;
+            color:#1AAB8A;
+          }
+        button:before,button:after{
+            content:'';
+            position:absolute;
+            top:0;
+            right:0;
+            height:2px;
+            width:0;
+            background: #1AAB8A;
+            transition:400ms ease all;
+          }
+        button:after{
+            right:inherit;
+            top:inherit;
+            left:0;
+            bottom:0;
+          }
+        button:hover:before,button:hover:after{
+            width:100%;
+            transition:800ms ease all;
+        }
+
+        div.left{
+            width: 60%;
+            height: 100vh;
+            float:left;
+        }
+
+        div.right{
+            width: 40%;
+            height: 100vh;
+            float:right;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .current{
+            font-size: 30px;
+            margin-left: 200px;
+        }
+        
+        #image{
+            position: relative;
+            left : 250px;
+            top : 25px;
+        }
+    </style>
+</head>
+<body>
+<div>
+        <div class="left">
+            <div class="current" >
+                <h1 id="location">지역 : </h1>
+                <div id="current-time">현재 시간 : </div>
+                <div id="current-temp">현재 온도 : </div>
+                <div id="feels-like">체감 온도 : </div>
+                <div id="weather-description">날씨 : </div>
+                <div id="wind-speed">풍속 : </div>
+                <div id="cloud">구름 : </div>
+                <div id="icon"></div>
+            </div>
+            
+                
+        </div>
+        <div class="right">
+            <h4 id="text1">원하는 지역의 날씨를 선택해주세요.</h4>
+            <select id="location" onchange="select_value(this)" size="5" 
+            style="background-color: transparent; color:white; width:400px; margin-left: 170px;   " >
+                    <option value="seoul" style="background: transparent;">서울</option>
+                    <option value="daejeon" style="background: transparent;">대전</option>
+                    <option value="daegu" style="background: transparent;">대구</option>
+                    <option value="busan" style="background: transparent;">부산</option>
+                    <option value="gwangju" style="background: transparent;">광주</option>
+                    <option value="chuncheon" style="background: transparent;">춘천</option>
+                    <option value="gangneung" style="background: transparent;">강릉</option>
+                    <option value="jeju city" style="background: transparent;">제주</option>
+
+            </select>
+
+            <button type="button">원하는 국립공원의 미세먼지를 예측해주세요
+            </button> 
+            <select id="location2" onchange="select_value2(this)" size="7" 
+            style="background-color: transparent; color:white; width:400px; margin-left: 170px; margin-top:20px  " >
+                    <option value="지리산,264" style="background: transparent;">지리산국립공원</option>
+                    <option value="경주,283" style="background: transparent;">경주국립공원</option>
+                    <option value="계룡산,133" style="background: transparent;">계룡산국립공원</option>
+                    <option value="한려해상,295" style="background: transparent;">한려해상국립공원</option>
+                    <option value="설악산,90" style="background: transparent;">설악산국립공원</option>
+                    <option value="속리산,226" style="background: transparent;">속리산국립공원</option>
+                    <option value="내장산,245" style="background: transparent;">내장산국립공원</option>
+                    <option value="가야산,285" style="background: transparent;">가야산국립공원</option>
+                    <option value="덕유산,264" style="background: transparent;">덕유산국립공원</option>
+                    <option value="오대산,105" style="background: transparent;">오대산국립공원</option>
+                    <option value="주왕산,276" style="background: transparent;">주왕산국립공원</option>
+                    <option value="태안해안,129" style="background: transparent;">태안해안국립공원</option>
+                    <option value="다도해해상,170" style="background: transparent;">다도해해상국립공원</option>
+                    <option value="치악산,114" style="background: transparent;">치악산국립공원</option>
+                    <option value="월악산,221" style="background: transparent;">월악산국립공원</option>
+                    <option value="북한산,108" style="background: transparent;">북한산국립공원</option>
+                    <option value="소백산,272" style="background: transparent;">소백산국립공원</option>
+                    <option value="월출산,259" style="background: transparent;">월출산국립공원</option>
+                    <option value="변산반도,243" style="background: transparent;">변산반도국립공원</option>
+                    <option value="무등산,156" style="background: transparent;">무등산국립공원</option>
+                    <option value="태백산,216" style="background: transparent;">태백산국립공원</option>
+                    <option value="한라산,184" style="background: transparent;">한라산국립공원</option>
+            </select>
+
+            <div id="pm">
+            </div>
+            <img id="image" src="">
+
+        </div>
+
+    </div>
+
+    <script src="pmrequest.js"></script>
+    <script src="./currentweather.js"></script>
+    <script src="./region.js"></script>
+</body>
+</html>
