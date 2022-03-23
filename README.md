@@ -86,7 +86,7 @@ Dust_Predict_Service/
 
 ## Result
 
-![시연 사진](/media/mwkang/743C798B3C79495E/3학년 2학기/Cloud Web Service/2021.12.03 최종/시연 사진.png)
+![시연 사진](https://user-images.githubusercontent.com/79822924/159752293-9f6061d8-f938-4107-9173-b9bd55169e3e.png)
 
 
 
